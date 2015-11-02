@@ -7,20 +7,20 @@
 class App
 
   def iterate_through_files
-    Dir['test_files/*'].each do | file |
+    Dir['test_files/*'].each do |file|
       open_file(file)
     end
   end
   
   def open_file(file)
-    data = File.open(file).map do | range |
+    data = File.open(file).map do |range|
       range.scan(/\d+/)
     end
     data = data.flatten
     output(file, data)
   end
 
-  def is_palindrome?(str)
+  def palindrome?(str)
     str == str.reverse
   end
 
@@ -29,18 +29,18 @@ class App
   end
 
   def push_palindromes(str)
-    @palindromes << str if is_palindrome?(str)
+    @palindromes << str if palindrome?(str)
   end
   
   def list_pallindromes(data)
-    data.map { | str | str.to_i }
+    data.map { |str| str.to_i }
     results = data[0]..data[1]
-    results = results.map{ | i | i.to_s}
-    results.select{ | str | push_palindrome(str)}
+    results = results.map { |i| i.to_s }
+    results.select { |str| push_palindromes(str) }
     @palindromes.count
   end
 
-  def output(file,data)
+  def output(file, data)
     count = list_pallindromes(data)
     puts "File checked: #{file} "
     puts "Range: #{data[0]}..#{data[1]}"
@@ -48,4 +48,5 @@ class App
     puts "============="
   end
 end
+
 App.new.iterate_through_files
