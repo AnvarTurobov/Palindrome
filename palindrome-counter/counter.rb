@@ -32,20 +32,19 @@ class App
 
   def list_palindromes(data)
     results = data[0]..data[1]
-    results.map(&:to_s).select { |str| push_palindromes(str) }  
+    results.map(&:to_s).select { |str| push_palindromes(str) }
     @palindromes.count
   end
 
   def empty
-    @palindromes.reject! { |str| str }
+    @palindromes.reject!
   end
 
   def output(file, data)
-    count = list_palindromes(data)
     puts "File checked: #{file} "
     puts "Range: #{data[0]}..#{data[1]}"
-    puts "Palindromes: #{count}"
-    puts "============="
+    puts "Palindromes: #{list_palindromes(data)}"
+    puts '==========='
     empty
   end
 end
