@@ -20,4 +20,18 @@ class App
   end
 
 
+  def is_palindrome?(str)
+    str == str.reverse
+  end
+
+  def initialize
+    @palindromes = []
+  end
+
+  def push_palindromes(str)
+    @palindromes << str if is_palindrome?(str)
+  end
+
+
+  
 end
