@@ -3,3 +3,21 @@
 # create a method to << detected palindromes into []
 # create method to sort and count palindromes
 # print the outcome for each file
+
+class App
+
+  def iterate_through_files
+    Dir['test_files/*'].each do |file|
+      open_file(file)
+    end
+  end
+  
+  def open_file(file)
+    data = File.open(file).map do |range|
+      range.scan(/\d+/)
+    end
+    data = data.flatten
+  end
+
+
+end
