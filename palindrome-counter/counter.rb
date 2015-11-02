@@ -30,11 +30,9 @@ class App
     @palindromes << str if palindrome?(str)
   end
 
-  def list_pallindromes(data)
-    data.map { |str| str.to_i }
+  def list_palindromes(data)
     results = data[0]..data[1]
-    results = results.map { |i| i.to_s }
-    results.select { |str| push_palindromes(str) }
+    results.map(&:to_s).select { |str| push_palindromes(str) }  
     @palindromes.count
   end
 
@@ -43,7 +41,7 @@ class App
   end
 
   def output(file, data)
-    count = list_pallindromes(data)
+    count = list_palindromes(data)
     puts "File checked: #{file} "
     puts "Range: #{data[0]}..#{data[1]}"
     puts "Palindromes: #{count}"
