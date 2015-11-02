@@ -7,9 +7,7 @@
 class App
 
   def iterate_through_files
-    Dir['test_files/*'].each do |file|
-      open_file(file)
-    end
+    Dir['test_files/*'].each { |file| open_file(file) }
   end
 
   def open_file(file)
@@ -41,7 +39,7 @@ class App
   end
 
   def empty
-    @palindromes.reject!{ |str| str }
+    @palindromes.reject! { |str| str }
   end
 
   def output(file, data)
