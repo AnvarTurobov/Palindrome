@@ -1,5 +1,5 @@
 # create a method to go through and open each test file - (StringScanner)
-# create a method to i_to_s and check if palindrome? (str = str.reverse)
+# create a method to i.to_s and check if palindrome? (str = str.reverse)
 # create a method to << detected palindromes into []
 # create method to sort and count palindromes
 # print the outcome for each file
@@ -17,8 +17,8 @@ class App
       range.scan(/\d+/)
     end
     data = data.flatten
+    output(file, data)
   end
-
 
   def is_palindrome?(str)
     str == str.reverse
@@ -39,6 +39,13 @@ class App
     results.select{ | str | push_palindrome(str)}
     @palindromes.count
   end
-  
 
+  def output(file,data)
+    count = list_pallindromes(data)
+    puts "File checked: #{file} "
+    puts "Range: #{data[0]}..#{data[1]}"
+    puts "Palindromes: #{count}"
+    puts "============="
+  end
 end
+App.new.iterate_through_files
