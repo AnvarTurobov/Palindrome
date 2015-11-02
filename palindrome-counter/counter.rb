@@ -3,7 +3,6 @@
 # create a method to << detected palindromes into []
 # create method to sort and count palindromes
 # print the outcome for each file
-
 class App
 
   def iterate_through_files
