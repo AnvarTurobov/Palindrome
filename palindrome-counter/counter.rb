@@ -3,6 +3,7 @@
 # create a method to << detected palindromes into []
 # create method to sort and count palindromes
 # print the outcome for each file
+
 class App
 
   def iterate_through_files
@@ -36,7 +37,7 @@ class App
   end
 
   def empty
-    @palindromes.reject!
+    @palindromes.reject! { |str| str }
   end
 
   def output(file, data)
