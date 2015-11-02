@@ -1,2 +1,0 @@
-# Palindrome
-Ruby Palindrome Challenge
