@@ -11,7 +11,7 @@ class App
       open_file(file)
     end
   end
-  
+
   def open_file(file)
     data = File.open(file).map do |range|
       range.scan(/\d+/)
@@ -31,7 +31,7 @@ class App
   def push_palindromes(str)
     @palindromes << str if palindrome?(str)
   end
-  
+
   def list_pallindromes(data)
     data.map { |str| str.to_i }
     results = data[0]..data[1]
@@ -40,12 +40,17 @@ class App
     @palindromes.count
   end
 
+  def empty
+    @palindromes.reject!{ |str| str }
+  end
+
   def output(file, data)
     count = list_pallindromes(data)
     puts "File checked: #{file} "
     puts "Range: #{data[0]}..#{data[1]}"
     puts "Palindromes: #{count}"
     puts "============="
+    empty
   end
 end
 
